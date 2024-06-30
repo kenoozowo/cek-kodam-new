@@ -16,46 +16,41 @@
     <p id="original-text">cek kodam kamu</p>
     <button id="change-text-btn">mulai cek kodam</button>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const originalText = document.getElementById("original-text");
-            const changeTextBtn = document.getElementById("change-text-btn");
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const originalText = document.getElementById("original-text");
+        const changeTextBtn = document.getElementById("change-text-btn");
 
-            // array of random sentences you can customize
-            const randomSentences = [
-                "sendok",
-                "bocil windah",
-                "manusia jelek",
-                "buaya",
-                "garpu terbang",
-                "Voldemort", 
-                "harry potter bukan Harry styles", 
-                "kontolodon", 
-                "pipel", 
-                "taylor swift",
-                "kenzi", 
-                // add more sentences here...
-            ];
+        const randomSentences = [
+            "sendok",
+            "bocil windah",
+            "manusia jelek",
+            "buaya",
+            "garpu terbang",
+            "Voldemort", 
+            "harry potter bukan Harry styles", 
+            "kontolodon", 
+            "pipel", 
+            "taylor swift",
+            "kenzi", 
+            // add more sentences here...
+        ];
 
-            changeTextBtn.addEventListener("click", (event) => {
-                event.preventDefault(); // prevent default button behavior
-                event.stopPropagation(); // prevent event from bubbling up the DOM tree
+        changeTextBtn.addEventListener("click", (event) => {
+            event.preventDefault(); // prevent default button behavior
+            event.stopPropagation(); // prevent event from bubbling up the DOM tree
 
-                originalText.remove(); // remove the original text element from the DOM
+            const randomIndex = Math.floor(Math.random() * randomSentences.length);
+            const randomSentence = randomSentences[randomIndex];
 
-                // generate a random index between 0 and the length of the randomSentences array
-                const randomIndex = Math.floor(Math.random() * randomSentences.length);
+            const newParagraph = document.createElement("p");
+            newParagraph.textContent = randomSentence;
 
-                const randomSentence = randomSentences[randomIndex];
+            document.body.appendChild(newParagraph);
 
-                // create a new paragraph element with the random sentence
-                const newParagraph = document.createElement("p");
-                newParagraph.textContent = randomSentence;
-
-                // add the new paragraph to the page
-                document.body.appendChild(newParagraph);
-            });
+            originalText.remove();
         });
-    </script>
+    });
+</script>
 </body>
 </html>
