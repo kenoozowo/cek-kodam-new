@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blank Page</title>
+    <style>
+        body {
+            background-color: #fff; /* white background */
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <p id="original-text">cek kodam kamu</p>
+    <button id="change-text-btn">mulai cek kodam</button>
+
+    <script>
+        const originalText = document.getElementById("original-text");
+        const changeTextBtn = document.getElementById("change-text-btn");
+
+        changeTextBtn.addEventListener("click", () => {
+            originalText.style.display = "none"; // hide the original text
+
+            // array of random sentences you can customize
+            const randomSentences = [
+                "sendok",
+                "bocil windah",
+                "manusia jelek",
+                "buaya",
+                "garpu terbang",
+                "Voldemort", 
+                "harry potter bukan Harry styles", 
+                "kontolodon", 
+                "pipel", 
+                "taylor swift"
+                "kenzi", 
+                // add more sentences here...
+            ];
+
+            const randomIndex = Math.floor(Math.random() * randomSentences.length);
+            const randomSentence = randomSentences[randomIndex];
+
+            // create a new paragraph element with the random sentence
+            const newParagraph = document.createElement("p");
+            newParagraph.textContent = randomSentence;
+
+            // add the new paragraph to the page
+            document.body.appendChild(newParagraph);
+        });
+    </script>
+</body>
+</html>
